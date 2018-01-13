@@ -8,7 +8,6 @@ export default StyleSheet.create({
       alignItems: 'center',
     },
     listContainer: {
-      top: 20,
       flex: 1,
       backgroundColor : '#cfcfcf'
     },
