@@ -43,6 +43,11 @@ export default StyleSheet.create({
       backgroundColor: '#ffffff',
       color: "#000000",
       borderRadius:3
+    },
+    standardInput : {
+      borderColor : 'black',
+      borderWidth : 2,
+      borderRadius: 5
     }
   
   });
