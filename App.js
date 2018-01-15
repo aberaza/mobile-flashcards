@@ -1,14 +1,18 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 import { DrawerNavigator, TabNavigator } from 'react-navigation';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk'
 import { Provider } from 'react-redux';
 
 import styles from './utils/styles';
+import {fetchDecks} from './utils/api';
 import reducer from './reducers';
+import actions from './actions';
 
 import AppHome from './components/Home'
 import AppNewDeck from './components/NewDeck'
+import AppStatusBar from './components/StatusBar'
 
 /*
 const AppMain = DrawerNavigator({
@@ -22,6 +26,10 @@ const AppMain = DrawerNavigator({
 })
 */
 
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?   
+  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : compose;
+
+const enhancer = composeEnhancers(applyMiddleware(thunk));
 
 
 const AppMain = TabNavigator({
@@ -52,8 +60,11 @@ const AppMain = TabNavigator({
 export default class App extends React.Component {
   render() {
     return (
-      <Provider store={createStore(reducer)}>
-        <AppMain />
+      <Provider store={createStore(reducer, enhancer)}>
+        <View style={{flex:1}}>
+          <AppStatusBar backgroundColor='blue' />
+          <AppMain />
+        </View>
       </Provider>
     );
   }
