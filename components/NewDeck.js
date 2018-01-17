@@ -24,8 +24,10 @@ class NewDeck extends React.Component {
             placeholder="Sample Deck Name"
             value={this.state.text}
             onChangeText={this.updateName}
+            onSubmitEditing={this.addDeck}
+            returnKeyType="send"
             editable={true}
-            autoFocus={true} />
+            autoFocus={false} />
           <Button title="Submit" onPress={this.addDeck} />
         </View >
       )

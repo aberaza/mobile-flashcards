@@ -6,7 +6,6 @@ import thunk from 'redux-thunk'
 import { Provider } from 'react-redux';
 
 import styles from './utils/styles';
-import {fetchDecks} from './utils/api';
 import reducer from './reducers';
 import actions from './actions';
 
@@ -62,7 +61,7 @@ export default class App extends React.Component {
     return (
       <Provider store={createStore(reducer, enhancer)}>
         <View style={{flex:1}}>
-          <AppStatusBar backgroundColor='blue' />
+          <AppStatusBar backgroundColor='blue' barStyle="light-content"/>
           <AppMain />
         </View>
       </Provider>

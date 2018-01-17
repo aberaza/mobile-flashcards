@@ -1,11 +1,11 @@
 import React from 'react'
-import { Text, View } from 'react-native'
+import { Text, View, Button } from 'react-native'
 
 export default ()=>{
     return (
         <View>
-            <Text>question?</Text>
-            <Text>answer</Text>
+            <Text>this.props.q</Text>
+            <Button title="Answer" onPress={console.log} />
         </View>
     )
 }

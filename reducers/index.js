@@ -1,4 +1,4 @@
-import { ADD_DECK, ADD_CARD, DELETE_DECK } from '../actions'
+import { ADD_DECK, ADD_CARD, DELETE_DECK, LOAD_DECKS } from '../actions'
 
 const initialState = {
     "mazo de prueba 1" : {
@@ -42,8 +42,10 @@ const initialState = {
   }
 }*/
 
-export default function (state=initialState, action) {
+export default function (state={}, action) {
     switch(action.type){
+        case LOAD_DECKS:
+            return action.decks
         case ADD_DECK:
             return {...state, [action.deck]:[]}
         case ADD_CARD:

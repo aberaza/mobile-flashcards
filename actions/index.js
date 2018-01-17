@@ -22,11 +22,10 @@ export const loadDecks = (decks) => (
 
 
 export const appAddDeck = deck => dispatch => api.submitDeck(deck)
-    .then(console.log)
+    .then(_ => dispatch(addDeck(deck)))
 
-export const appAddCard = (deck, q, a) => dispatch => api.addQuestion(deck, {q, a})
-    .then(console.log)
+export const appAddCard = (deck, q, a) => dispatch => api.addQuestion(deck, {q, a}) 
+    .then(_=> dispatch(addCard(deck, question, answer)))
 
 export const appLoadDecks = _ => dispatch => api.fetchDecks()
     .then(decks => dispatch(loadDecks(decks)))
-// export const appDeleteDeck = deck => dispatch => 

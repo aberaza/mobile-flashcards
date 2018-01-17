@@ -3,20 +3,43 @@ import { Text, TextInput, View, List, FlatList } from 'react-native'
 import { connect } from 'react-redux'
 
 import styles from '../utils/styles'
+import { appLoadDecks } from '../actions' 
 
 import DeckInfo from './DeckInfo'
 
+const DeckFilter = ({filter, setFilter})=>{
+    return (
+        <View>
+            <TextInput placeholder="Search..."
+                onEndEditing={setFilter}
+                editable={true}
+                autoFocus={false}
+            />
+        </View>
+    )
+}
+
 class Home extends React.Component {
+    state = {
+        filter:""
+    }
+
+    componentDidMount(){
+        this.props.loadDecks({})
+    }  
+
+    setFilter = filter => this.setState({filter})
+
     render() {
         const decks = Object.keys(this.props.decks).map((deck) => this.props.decks[deck])
-        
+               
         return (
             
             <FlatList style={styles.listContainer} 
                 data={decks}
                 keyExtractor={(item, index) => item.title}
                 renderItem={({item, index, separators}) => (<DeckInfo {...item} />)}
-                ListHeaderComponent={()=>(<View><TextInput style={styles.styles} placeholder="Search..."/></View>)}
+                ListHeaderComponent={() =>(<DeckFilter filter={this.state.filter} setFilter={this.setFilter} />)}
                 ItemSeparatorComponent={(index)=>(<View key={index} style={styles.separator} />)}
             />
                 
@@ -34,4 +57,8 @@ function mapStateToProps(state) {
     return { decks: state }
 }
 
-export default connect(mapStateToProps)(Home)
+const mapDispatchToProps = {
+    loadDecks : appLoadDecks
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home)
