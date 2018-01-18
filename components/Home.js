@@ -28,18 +28,21 @@ class Home extends React.Component {
         this.props.loadDecks({})
     }  
 
+    shouldComponentUpdate(nextProps) {
+        return this.props !== nextProps
+    }
+
+
     setFilter = filter => this.setState({filter})
 
     _onPressItem = (id) => {
         alert("You selected " + id)
-        console.log("onpressitem " + id)
     }
 
-    render() {
+    render() { 
         const decks = Object.keys(this.props.decks).map((deck) => this.props.decks[deck])
-               
+
         return (
-            
             <FlatList style={styles.listContainer} 
                 data={decks}
                 keyExtractor={(item, index) => item.title}

@@ -22,7 +22,7 @@ class NewDeck extends React.Component {
           <TextInput 
             style={styles.standardInput} 
             placeholder="Sample Deck Name"
-            value={this.state.text}
+            value={this.state.name}
             onChangeText={this.updateName}
             onSubmitEditing={this.addDeck}
             returnKeyType="send"
