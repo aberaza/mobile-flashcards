@@ -30,6 +30,11 @@ class Home extends React.Component {
 
     setFilter = filter => this.setState({filter})
 
+    _onPressItem = (id) => {
+        alert("You selected " + id)
+        console.log("onpressitem " + id)
+    }
+
     render() {
         const decks = Object.keys(this.props.decks).map((deck) => this.props.decks[deck])
                
@@ -38,7 +43,7 @@ class Home extends React.Component {
             <FlatList style={styles.listContainer} 
                 data={decks}
                 keyExtractor={(item, index) => item.title}
-                renderItem={({item, index, separators}) => (<DeckInfo {...item} />)}
+                renderItem={({item, index, separators}) => (<DeckInfo onPressItem={this._onPressItem} {...item} />)}
                 ListHeaderComponent={() =>(<DeckFilter filter={this.state.filter} setFilter={this.setFilter} />)}
                 ItemSeparatorComponent={(index)=>(<View key={index} style={styles.separator} />)}
             />
