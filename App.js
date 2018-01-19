@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, View } from 'react-native';
-import { DrawerNavigator, TabNavigator } from 'react-navigation';
+import { DrawerNavigator, TabNavigator, StackNavigator } from 'react-navigation';
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk'
 import { Provider } from 'react-redux';
@@ -9,51 +9,28 @@ import styles from './utils/styles';
 import reducer from './reducers';
 import actions from './actions';
 
-import AppHome from './components/Home'
-import AppNewDeck from './components/NewDeck'
+import DeckHome from './components/Home'
 import AppStatusBar from './components/StatusBar'
-
-/*
-const AppMain = DrawerNavigator({
-  Home: {
-    screen: Home,
-
-  },
-  Settings: {
-    screen: Settings
-  }
-})
-*/
+import AppTestDeck from './components/TestDeck'
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?   
   window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : compose;
 
 const enhancer = composeEnhancers(applyMiddleware(thunk));
-
-
-const AppMain = TabNavigator({
-  Home: {
-    screen: AppHome,
-    navigationOptions: {
-      
-      tabBarLabel: 'Decks List'
-    }
+/*
+const AppDeckNav = StackNavigator({
+  Home : {
+    path : 'decks/',
+    screen : AppMain
   },
-  NewDeck: {
-    screen: AppNewDeck,
-    navigationOptions: {
-      tabBarLabel: 'New Deck'
-    }
-  }
-}, {
-    animationEnabled: true,
-    swipeEnabled: true,
-    order: ['Home', 'NewDeck'],
-    backBehavior: 'initialRoute',
-    tabBarOptions: {
-
+  Deck : {
+    path : 'decks/:title',
+    screen : 'TestDeck',
+    navigationOptions : ({navigation}) => ({title : `${navigation.state.params.title} Deck`})
   }
 })
+*/
+
 
 
 export default class App extends React.Component {
@@ -62,7 +39,7 @@ export default class App extends React.Component {
       <Provider store={createStore(reducer, enhancer)}>
         <View style={{flex:1}}>
           <AppStatusBar backgroundColor='blue' barStyle="light-content"/>
-          <AppMain />
+          <DeckHome />
         </View>
       </Provider>
     );
