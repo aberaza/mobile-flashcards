@@ -17,11 +17,11 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
   window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : compose;
 
 const enhancer = composeEnhancers(applyMiddleware(thunk));
-/*
+
 const AppDeckNav = StackNavigator({
   Home : {
-    path : 'decks/',
-    screen : AppMain
+   // path : 'decks/',
+    screen : DeckHome
   },
   Deck : {
     path : 'decks/:title',
@@ -29,7 +29,7 @@ const AppDeckNav = StackNavigator({
     navigationOptions : ({navigation}) => ({title : `${navigation.state.params.title} Deck`})
   }
 })
-*/
+
 
 
 
@@ -39,7 +39,7 @@ export default class App extends React.Component {
       <Provider store={createStore(reducer, enhancer)}>
         <View style={{flex:1}}>
           <AppStatusBar backgroundColor='blue' barStyle="light-content"/>
-          <DeckHome />
+          <AppDeckNav />
         </View>
       </Provider>
     );
