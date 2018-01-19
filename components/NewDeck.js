@@ -12,8 +12,14 @@ class NewDeck extends React.Component {
 
     updateName = name => this.setState({name})
 
-    addDeck = _ => this.props.submitDeck(this.state.name)
-      .then(this.setState({name:""}))
+    addDeck = _ => {
+      this.props.submitDeck(this.state.name)
+        .then(_ => {
+          this.setState({name:""})
+          this.props.navigation.goBack()
+        })
+      //this.props.navigation.goBack();
+    }
 
     render() {
       return (

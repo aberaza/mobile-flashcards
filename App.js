@@ -21,16 +21,18 @@ const enhancer = composeEnhancers(applyMiddleware(thunk));
 const AppDeckNav = StackNavigator({
   Home : {
    // path : 'decks/',
-    screen : DeckHome
+    screen : DeckHome,
+    navigationOptions : {
+    }
   },
   Deck : {
     path : 'decks/:title',
     screen : 'TestDeck',
     navigationOptions : ({navigation}) => ({title : `${navigation.state.params.title} Deck`})
   }
+},{
+  headerMode: 'none'
 })
-
-
 
 
 export default class App extends React.Component {
