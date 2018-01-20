@@ -31,7 +31,7 @@ const HomeRouter = TabNavigator({
   export default class DeckHome extends React.Component {
       render () {
           return (
-              <HomeRouter />
+              <HomeRouter rootRouter={this.props.navigation} />
           )
       }
   }
