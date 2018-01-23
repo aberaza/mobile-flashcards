@@ -32,16 +32,15 @@ class DeckList extends React.Component {
         return this.props !== nextProps
     }
 
-
-    setFilter = filter => this.setState({filter})
+    setFilter = filter => this.setState({ filter })
 
     _onPressItem = (id) => {
-        alert("You selected " + id)
+        this.props.navigation.navigate('DeckHub', {title:id})
     }
 
     render() { 
         const decks = Object.keys(this.props.decks).map((deck) => this.props.decks[deck])
-
+        console.log(this.props)
         return (
             <FlatList style={styles.listContainer} 
                 data={decks}
@@ -54,8 +53,8 @@ class DeckList extends React.Component {
     }
 }
 
-function mapStateToProps({decks}) {
-    return { decks }
+function mapStateToProps({decks, nav}) {
+    return { decks, nav }
 }
 
 const mapDispatchToProps = {

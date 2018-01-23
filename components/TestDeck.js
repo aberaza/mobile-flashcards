@@ -1,4 +1,5 @@
 import React from 'react'
+import {connect} from 'react-redux'
 
 import Question from '../components/Question'
 import Answer from '../components/Answer'
@@ -31,6 +32,7 @@ class TestDeck extends React.Component {
         const {questions, current } = this.state;
         return (
             <View>
+                <Text>Pregunta:</Text>
                 {this.state.showAnswer
                     ? (<Answer {...questions[current]} />)
                     : (<Questions {...questions[current]} />)
@@ -39,3 +41,9 @@ class TestDeck extends React.Component {
         )
     }
 }
+
+const mapStateToProps = (state) => ({
+
+})
+
+export default connect(mapStateToProps)(TestDeck)

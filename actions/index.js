@@ -4,7 +4,7 @@ export const ADD_DECK = "app_add_deck"
 export const DELETE_DECK = "app_delete_deck"
 export const ADD_CARD = "app_add_card"
 export const LOAD_DECKS = "app_load_decks"
-export const GOTO_PATH = "app_goto_path"
+export const GOTO_SCREEN = "app_goto_path"
 export const GOTO_TAB = "app_goto_tab"
 
 
@@ -21,8 +21,8 @@ export const loadDecks = (decks) => (
     {type: LOAD_DECKS, decks}
 )
 
-export const gotoPath = (path) => (
-    {type: GOTO_PATH, path}
+export const gotoScreen = (screen) => (
+    {type: GOTO_PATH, screen}
 )
 export const gotoTab = (tab) => (
     {type: GOTO_TAB, tab}
