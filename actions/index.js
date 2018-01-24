@@ -29,7 +29,6 @@ export const gotoTab = (tab) => (
 )
 
 //navigation actions
-
 export const appGotoPath = path => dispatch => dispatch(gotoPath(path))
 export const appGotoTab = tab => dispatch => dispatch(gotoTab(tab))
 

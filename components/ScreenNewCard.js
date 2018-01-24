@@ -6,7 +6,7 @@ import { Text, TextInput, Button, View } from 'react-native';
 import styles from '../utils/styles'
 import { appAddCard } from '../actions'
 
-export default class NewCard extends React.Component {
+class NewCard extends React.Component {
     state = {
         q : "",
         a : ""
@@ -15,10 +15,11 @@ export default class NewCard extends React.Component {
     updateQ = q => this.setState({q})
     updateA = a => this.setState({a})
     addCard = _ => {
-        return appAddCard(this.props.navigation.state.params.title, this.state)
-        //.then(this.props.navigation.Back)
+        return this.props.appAddCard(this.props.navigation.state.params.title, this.state)
+                .then(this.props.navigation.Back)
     }
     render(){
+        console.log("new card props", this.props)
         return (
             <View>
                 <Text>Question:</Text>
@@ -43,3 +44,9 @@ export default class NewCard extends React.Component {
         )
     }
 }
+
+const mapDispatchToProps = {
+    appAddCard
+}
+
+export default connect(null, mapDispatchToProps)(NewCard)

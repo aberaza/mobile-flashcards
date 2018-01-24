@@ -12,10 +12,9 @@ class ScreenDeckInfo extends React.Component {
         questions : [],
     }
 
-    addCard = _ => {
-        console.log(this.props.navigation.navigate)
-        this.props.navigation.navigate('AddCard', {title: this.props.deck.title})
-    }
+    addCard = _ => this.props.navigation.navigate('AddCard', {title: this.props.deck.title})
+
+    playDeck = _ => this.props.navigation.navigate('DeckTest', {title: this.props.deck.title})
 
     render(){
         const { title="", questions=[] } = this.props.deck;
@@ -24,6 +23,7 @@ class ScreenDeckInfo extends React.Component {
                 <Text>Dec: {title} </Text>
                 <Text>{questions.length} cards</Text>
                 <Button title="Add Card" onPress={this.addCard} />
+                <Button title="Play Deck!" onPress={this.playDeck} />
             </View>
         )
     }

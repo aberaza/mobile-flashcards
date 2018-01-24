@@ -14,12 +14,13 @@ export function submitDeck(title){
 }
 
 export function addQuestion(deck, question) {
+    console.log("add card to deck " + deck, question)
     return AsyncStorage.getItem(DECKS_KEY)
         .then((results) => {
             let data = JSON.parse(results)
-            console("api ", data)
+            console.log("api ",data)
             data[deck].questions.push(question)
-            console("api ", data)
+            console.log("api ", data)
             AsyncStorage.setItem(DECKS_KEY, JSON.stringify(data))
         }
     )

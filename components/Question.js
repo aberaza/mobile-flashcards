@@ -1,10 +1,10 @@
 import React from 'react'
 import { Text, View, Button } from 'react-native'
 
-export default ()=>{
+export default (props)=>{
     return (
         <View>
-            <Text>this.props.q</Text>
+            <Text>{props.q}</Text>
             <Button title="Answer" onPress={console.log} />
         </View>
     )
