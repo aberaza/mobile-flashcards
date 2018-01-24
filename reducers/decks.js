@@ -49,7 +49,7 @@ export default function (state={}, action) {
         case ADD_DECK:
             return {...state, [action.deck]:{title: action.deck, questions: []}}
         case ADD_CARD:
-            return {...state, [action.deck]:{title:action.deck, questions: [...state[action.deck].questions, {q:action.question, a: action.answer}]}}
+            return {...state, [action.deck]:{title:action.deck, questions: [...state[action.deck].questions, action.question]}}
         case DELETE_DECK: 
             return Object.keys(state).reduce((prev, deck) => (deck === action.deck
                 ? prev

@@ -35,7 +35,7 @@ class DeckList extends React.Component {
     setFilter = filter => this.setState({ filter })
 
     _onPressItem = (id) => {
-        this.props.navigation.navigate('DeckInfo', {title:id})
+        this.props.navigation.navigate('DeckHub', {title:id})
     }
 
     render() { 

@@ -12,13 +12,18 @@ class ScreenDeckInfo extends React.Component {
         questions : [],
     }
 
+    addCard = _ => {
+        console.log(this.props.navigation.navigate)
+        this.props.navigation.navigate('AddCard', {title: this.props.deck.title})
+    }
+
     render(){
         const { title="", questions=[] } = this.props.deck;
         return (
             <View>
                 <Text>Dec: {title} </Text>
                 <Text>{questions.length} cards</Text>
-                <Button title="Add Card" />
+                <Button title="Add Card" onPress={this.addCard} />
             </View>
         )
     }

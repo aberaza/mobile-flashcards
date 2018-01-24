@@ -6,7 +6,7 @@ import { Text, TextInput, Button, View } from 'react-native';
 import styles from '../utils/styles'
 import { appAddCard } from '../actions'
 
-class NewCard extends React.Component {
+export default class NewCard extends React.Component {
     state = {
         q : "",
         a : ""
@@ -14,9 +14,10 @@ class NewCard extends React.Component {
 
     updateQ = q => this.setState({q})
     updateA = a => this.setState({a})
-    addCard = _ => appAddCard(this.props.navigation.state.params.deck, this.state)
-        .then(this.setState({q:"", a:""}))
-
+    addCard = _ => {
+        return appAddCard(this.props.navigation.state.params.title, this.state)
+        //.then(this.props.navigation.Back)
+    }
     render(){
         return (
             <View>
@@ -31,9 +32,9 @@ class NewCard extends React.Component {
                 <Text>Answer:</Text>
                 <TextInput style={styles.standardInput} 
                     placeholder="...and what should be the answer?"
-                    value={this.state.q}
+                    value={this.state.a}
                     onChangeText={this.updateA}
-                    returnKeyType="submit"
+                    returnKeyType="done"
                     onSubmitEditing={this.addCard}
                     editable={true}
                     autoFocus={false} />

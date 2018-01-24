@@ -14,8 +14,8 @@ export const addDeck = (deck) => (
 export const deleteDeck = (deck) => (
     {type: DELETE_DECK, deck}
 )
-export const addCard = (deck, question, answer ) =>(
-    {type: ADD_CARD, deck, question, answer}
+export const addCard = (deck, question ) =>(
+    {type: ADD_CARD, deck, question}
 )
 export const loadDecks = (decks) => (
     {type: LOAD_DECKS, decks}
@@ -36,8 +36,8 @@ export const appGotoTab = tab => dispatch => dispatch(gotoTab(tab))
 export const appAddDeck = deck => dispatch => api.submitDeck(deck)
     .then(_=> dispatch(addDeck(deck)))
 
-export const appAddCard = (deck, q, a) => dispatch => api.addQuestion(deck, {q, a}) 
-    .then(_=> dispatch(addCard(deck, question, answer)))
+export const appAddCard = (deck, question) => dispatch => api.addQuestion(deck, question) 
+    .then(_=> dispatch(addCard(deck, question)))
 
 export const appLoadDecks = _ => dispatch => api.fetchDecks()
     .then(decks => dispatch(loadDecks(decks)))

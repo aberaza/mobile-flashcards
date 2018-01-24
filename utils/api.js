@@ -16,8 +16,10 @@ export function submitDeck(title){
 export function addQuestion(deck, question) {
     return AsyncStorage.getItem(DECKS_KEY)
         .then((results) => {
-            const data = JSON.parse(results)
+            let data = JSON.parse(results)
+            console("api ", data)
             data[deck].questions.push(question)
+            console("api ", data)
             AsyncStorage.setItem(DECKS_KEY, JSON.stringify(data))
         }
     )

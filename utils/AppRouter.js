@@ -1,6 +1,7 @@
 import { StackNavigator } from 'react-navigation'
 
 import DeckListNavigator from '../components/DecksListNavigator'
+import DeckInfoNavigator from '../components/DeckInfoNavigator'
 import ScreenDeckInfo from '../components/ScreenDeckInfo'
 import ScreenTestDeck from '../components/ScreenTestDeck'
 
@@ -10,8 +11,8 @@ const routeConfig = {
       navigationOptions : {
       }
     },
-    DeckInfo : {
-        screen : ScreenDeckInfo,
+    DeckHub : {
+        screen : DeckInfoNavigator,
         navigationOptions : ({navigation}) => ({
           title : `${navigation.state.params.title} Deck`
         })
