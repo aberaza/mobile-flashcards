@@ -6,7 +6,6 @@ import AppRouter from '../utils/AppRouter'
 
 class AppNav extends React.Component {
   render(){
-    console.log(this.props)
     const { dispatch, nav } = this.props
     return (
       <AppRouter navigation={addNavigationHelpers({dispatch, state : nav})} />
