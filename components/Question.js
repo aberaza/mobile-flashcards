@@ -5,7 +5,7 @@ export default (props)=>{
     return (
         <View>
             <Text>{props.q}</Text>
-            <Button title="Answer" onPress={console.log} />
+            <Button title="Answer" onPress={props.showAnswer} />
         </View>
     )
 }

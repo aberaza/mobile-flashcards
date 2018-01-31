@@ -1,13 +1,14 @@
 import React from 'react'
 import { Text, View, Button } from 'react-native'
 
-export default ()=>{
+export default (props)=>{
+    const {answerQuestion, a} = props
     return (
         <View>
             <Text>Answer:</Text>
-            <Text>{this.props.a}</Text>
-            <Button title="Correct" onPress={console.log} />
-            <Button title="Wrong" onPress={console.log} />
+            <Text>{a}</Text>
+            <Button title="Correct" onPress={()=>answerQuestion(true)} />
+            <Button title="Wrong" onPress={()=>answerQuestion(false)} />
         </View>
     )
 }

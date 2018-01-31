@@ -46,13 +46,23 @@ class TestDeck extends React.Component {
     render(){
         const {questions, current } = this.state;
         const finished = current >= questions.length
+        const showAnswer = !finished && this.state.showAnswer
+        const showQuestion = !finished && this.state.showQuestion
         return (
             <View>
-                <Text>Pregunta {this.state.current + 1}/{this.state.questions.length}:</Text>
-                {this.state.showAnswer
-                    ? (<Answer {...questions[current]} />)
-                    : (<Question {...questions[current]} />)
-                }
+                {!finished && (<Text>Pregunta {this.state.current + 1}/{this.state.questions.length}:</Text>)}
+                {!finished && (this.state.showAnswer
+                    ? (<Answer answerQuestion={this.answerQuestion} {...questions[current]} />)
+                    : (<Question showAnswer={this.showAnswer} {...questions[current]} />)
+                
+                )}
+                {finished && (
+                    <View>
+                        <Text>You scored {this.state.correct} out of {this.state.questions.length}</Text>
+                        <Button title="Choose another deck" onPress={_=> this.props.navigation.navigate('Home', {})} />
+                        <Button title="Start Over" onPress={_=>this.setState({current : 0, showAnswer : false, correct : 0})} />
+                    </View>
+                )}
             </View>
         )
     }
