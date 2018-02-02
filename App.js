@@ -9,6 +9,8 @@ import nav from './reducers/navigation';
 import decks from './reducers/decks'
 import actions from './actions';
 
+import {DARK} from './utils/colors'
+
 import AppNavigator from './components/AppNavigator'
 import AppStatusBar from './components/StatusBar'
 
@@ -27,8 +29,8 @@ export default class App extends React.Component {
   render() {
     return (
       <Provider store={createStore(reducer, enhancer)}>
-        <View style={{flex:1}}>
-          <AppStatusBar backgroundColor='blue' barStyle="light-content"/>
+        <View style={styles.appContainer}>
+          <AppStatusBar backgroundColor={DARK} barStyle="light-content"/>
           <AppNavigator />
         </View>
       </Provider>

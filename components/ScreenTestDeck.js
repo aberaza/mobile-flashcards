@@ -1,18 +1,15 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {View, Text, Button } from 'react-native'
+import {View, Text } from 'react-native'
 
 import Question from '../components/Question'
 import Answer from '../components/Answer'
+import Results from '../components/Results'
+import styles from '../utils/styles'
+
+import { Card, CardTitle, CardContent, CardActions } from './MCards'
 
 class TestDeck extends React.Component {
-    state = {
-        name : "",
-        current : 0,
-        showAnswer : false,
-        correct : 0,
-        questions : [],
-    }
 
     constructor(props){
         super(props)
@@ -33,15 +30,15 @@ class TestDeck extends React.Component {
                 correct: correct?++state.correct:state.correct,
             }
         })
-
-        if(this.state.current >= this.state.questions.length){
-            console.log("the end")
-        }
     }
 
     showAnswer = _ => this.setState({showAnswer:true})
 
     nextQuestion = _=> this.setState({current : this.state.current + 1, showAnswer:false})
+
+    goHome = _ => this.props.navigation.navigate('Home', {})
+
+    restart = _ => this.setState({ current: 0, showAnswer: false, correct: 0 })
 
     render(){
         const {questions, current } = this.state;
@@ -49,20 +46,14 @@ class TestDeck extends React.Component {
         const showAnswer = !finished && this.state.showAnswer
         const showQuestion = !finished && this.state.showQuestion
         return (
-            <View>
+            <View style={styles.appContainer}>
                 {!finished && (<Text>Pregunta {this.state.current + 1}/{this.state.questions.length}:</Text>)}
                 {!finished && (this.state.showAnswer
                     ? (<Answer answerQuestion={this.answerQuestion} {...questions[current]} />)
                     : (<Question showAnswer={this.showAnswer} {...questions[current]} />)
-                
                 )}
-                {finished && (
-                    <View>
-                        <Text>You scored {this.state.correct} out of {this.state.questions.length}</Text>
-                        <Button title="Choose another deck" onPress={_=> this.props.navigation.navigate('Home', {})} />
-                        <Button title="Start Over" onPress={_=>this.setState({current : 0, showAnswer : false, correct : 0})} />
-                    </View>
-                )}
+                {finished && (<Results goHome={this.goHome} restart={this.restart} {...this.state} />
+)}
             </View>
         )
     }

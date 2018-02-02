@@ -1,9 +1,10 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import { Text, View, Button } from 'react-native'
+import { Text } from 'react-native'
 
-import Question from '../components/Question'
-import Answer from '../components/Answer'
+import styles from '../utils/styles'
+import { Card, CardTitle, CardContent, CardActions } from './MCards'
+import MButton from './MButton'
 
 class ScreenDeckInfo extends React.Component {
     state = {
@@ -19,12 +20,16 @@ class ScreenDeckInfo extends React.Component {
     render(){
         const { title="", questions=[] } = this.props.deck;
         return (
-            <View>
-                <Text>Dec: {title} </Text>
-                <Text>{questions.length} cards</Text>
-                <Button title="Add Card" onPress={this.addCard} />
-                <Button title="Play Deck!" onPress={this.playDeck} />
-            </View>
+            <Card>
+                <CardTitle>{title} </CardTitle>
+                <CardContent>
+                    <Text style={styles.textStandard}>{questions.length} cards</Text>
+                </CardContent>
+                <CardActions>
+                    <MButton title="Add Card" onPress={this.addCard} />
+                    {questions.length > 0 && (<MButton title="Play Deck!" onPress={this.playDeck} />)}
+                </CardActions>
+            </Card>
         )
     }
 }
