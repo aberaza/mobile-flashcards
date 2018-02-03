@@ -1,6 +1,6 @@
 import { TabNavigator } from 'react-navigation';
 
-import {DARK} from './colors'
+import { DARK, YELLOW, RED } from './colors'
 import ScreenDeckList from '../components/ScreenDeckList'
 import ScreenNewDeck from '../components/ScreenNewDeck'
 
@@ -25,9 +25,20 @@ const navConfig = {
     order: ['List', 'NewDeck'],
     backBehavior: 'initialRoute',
     tabBarOptions: {
+        activeTintColor: RED,
+        inactiveTintColor : YELLOW,
         style: {
-            backgroundColor : DARK
+            backgroundColor : DARK,
+        },
+        labelStyle : {
+            fontSize:14,
+            fontWeight: 'bold'
+        },
+        indicatorStyle : {
+            borderBottomColor: RED,
+            borderBottomWidth: 2,
         }
+
     }
 }
 

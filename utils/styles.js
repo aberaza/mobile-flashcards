@@ -7,6 +7,10 @@ export default StyleSheet.create({
       flexDirection : 'column',
       backgroundColor: C.LIGHT
     },
+    appHeader:{
+      backgroundColor : C.DARK,
+      color : C.ORANGE
+    },
 //Decks List styling
     listContainer: {
       flex: 1,
@@ -39,12 +43,12 @@ export default StyleSheet.create({
 //
     textQuestion : {
       fontSize : 18,
-      color : C.BLACK,
+      color : C.RED_LIGHT,
       fontWeight:'bold'
     },
     textAnswer : {
       fontSize : 18,
-      color : C.BLACK,
+      color : C.RED_LIGHT,
       fontStyle: 'italic'
     },
     textStandard : {

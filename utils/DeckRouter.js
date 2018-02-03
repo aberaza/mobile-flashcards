@@ -4,6 +4,8 @@ import DeckListNavigator from '../components/DecksListNavigator'
 import ScreenDeckInfo from '../components/ScreenDeckInfo'
 import ScreenNewCard from '../components/ScreenNewCard'
 import ScreenTestDeck from '../components/ScreenTestDeck'
+import styles from '../utils/styles'
+import {DARK, YELLOW, RED_LIGHT } from '../utils/colors'
 
 const routeConfig = {
     DeckInfo : {
@@ -23,7 +25,12 @@ const routeConfig = {
   }
 
 const navConfig = {
-  initialRouteName : 'DeckInfo'
+  initialRouteName : 'DeckInfo',
+  navigationOptions : {
+    headerTintColor : RED_LIGHT,
+    headerStyle : { backgroundColor:DARK },
+    headerTitleStyle : {color : YELLOW},
+  }
 }
 
 export default StackNavigator(routeConfig, navConfig)

@@ -17,11 +17,11 @@ const routeConfig = {
           title : `${navigation.state.params.title} Deck`
         })
 
-    },
+    }/*,
     DeckTest : {
       screen : ScreenTestDeck,
       navigationOptions : ({navigation}) => ({title : `${navigation.state.params.title} Deck`})
-    }
+    }*/
   }
 
 const navConfig = {
