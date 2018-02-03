@@ -13,10 +13,6 @@ const initialState=AppRouter.router.getStateForAction(NavigationActions.reset({
 	  }),
 	],
 }))
-const navReducer = (state=initialState, action) => {
-    console.log("navigation.js reducer", action)
-    console.log(state)
-    return AppRouter.router.getStateForAction(action, state) || state
-}
+const navReducer = (state=initialState, action) =>  AppRouter.router.getStateForAction(action, state) || state
 
 export default navReducer

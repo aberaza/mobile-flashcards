@@ -52,10 +52,8 @@ export default StyleSheet.create({
       color : C.RED_LIGHT
     },
     standardInput : {
-      backgroundColor: C.NORMAL_DARK,
-      color: C.BLACK,
+      color: C.RED_LIGHT,
       borderWidth : 0,
-      borderRadius : 2,
       fontSize : 16
     },
     /*from react-native-card-view*/

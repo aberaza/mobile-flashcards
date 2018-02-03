@@ -5,19 +5,21 @@ import * as C from '../utils/colors'
 import styles from '../utils/styles'
 
 export default MTextInput = (props) => (
-    <View style={{ backgroundColor:'cyan', alignSelf : 'stretch'}}>
-    <View style={{
-        flex:1,
+        <View style={{
         flexDirection:'column',
-        justifyContent: 'space-around',
-        height : 48,
-        backgroundColor : "green"
+        alignItems: 'stretch',
+        justifyContent: 'center'
     }}>
-        <TextInput style={styles.standardInput} {...props} underlineColorAndroid='red'/>
+        <TextInput style={styles.standardInput} 
+            underlineColorAndroid='rgba(0,0,0,0)'
+            editable={true}
+            autoFocus={false}
+            placeholderTextColor={C.YELLOW}
+            {...props} 
+        />
         <View style={{
             borderBottomWidth: 1,
-            borderBottomColor: C.BLACK
+            borderBottomColor: C.RED_LIGHT
         }}></View>
-    </View>
     </View>
 )
