@@ -43,8 +43,6 @@ const initialState = {
 }*/
 
 export default function (state={}, action) {
-    console.log("decks reducer", state, action)
-
     switch(action.type){
         case LOAD_DECKS:
             return action.decks

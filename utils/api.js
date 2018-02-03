@@ -10,7 +10,7 @@ export function fetchDecks() {
 export function submitDeck(title){
     console.log("submit deck " + title)
     return AsyncStorage.mergeItem(DECKS_KEY, JSON.stringify({[title]:{title,questions:[]}}))
-       .then(console.log)
+    //   .then(console.log)
 }
 
 export function addQuestion(deck, question) {
