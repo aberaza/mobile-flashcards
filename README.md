@@ -4,6 +4,10 @@ Basic React Native application to mimick a collection of flashckards decks. Appl
 
 Application has been tested on Android 6.0.1
 
+App Icon from https://play.google.com/store/apps/details?id=com.lemorize
+
+Card components based on those from: https://github.com/jacklam718/react-native-card-view
+
 ## Install and Run
 
 There are 3 ways to run this app on your device:
@@ -35,7 +39,7 @@ Install the Expo Client App from the Android Store (https://play.google.com/stor
 
  4. Run the server: On the same terminal, run command `npm start` and follow instructions.
 
- 
+
 
 
 
