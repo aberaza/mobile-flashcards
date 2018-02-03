@@ -20,7 +20,7 @@ const routeConfig = {
     },
     DeckTest : {
       screen : ScreenTestDeck,
-      navigationOptions : ({navigation}) => ({title : `${navigation.state.params.title} Deck`})
+      navigationOptions : ({navigation}) => ({title : `${navigation.state.params.title} ${navigation.state.params.value || ""}`})
     }
   }
 
