@@ -7,6 +7,8 @@ import Answer from '../components/Answer'
 import Results from '../components/Results'
 import styles from '../utils/styles'
 
+import {clearLocalNotification, setLocalNotification} from '../utils/helpers'
+
 import { Card, CardTitle, CardContent, CardActions } from './MCards'
 
 class TestDeck extends React.Component {
@@ -23,6 +25,10 @@ class TestDeck extends React.Component {
     }
 
     answerQuestion = (correct) => {
+        if(this.state.current +1 >= this.state.questions.length){
+            clearLocalNotification().then(setLocalNotification)
+        }
+        
         this.setState((state) => {
             return {
                 current : ++state.current,

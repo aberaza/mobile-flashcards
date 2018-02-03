@@ -10,6 +10,7 @@ import decks from './reducers/decks'
 import actions from './actions';
 
 import {DARK} from './utils/colors'
+import { setLocalNotification } from './utils/helpers'
 
 import AppNavigator from './components/AppNavigator'
 import AppStatusBar from './components/StatusBar'
@@ -26,6 +27,10 @@ const reducer = combineReducers({
 
 
 export default class App extends React.Component {
+  componentDidMount(){
+    setLocalNotification()
+  }
+
   render() {
     return (
       <Provider store={createStore(reducer, enhancer)}>
