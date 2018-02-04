@@ -1,21 +1,5 @@
 import { ADD_DECK, ADD_CARD, DELETE_DECK, LOAD_DECKS } from '../actions'
 
-const initialState = {
-    "mazo de prueba 1" : {
-        title : "mazo de prueba 1",
-        questions : [
-           {q: "¿Cómo te llamas?", a: "Aritz"},
-            {q: "¿Dónde naciste?", a: "Barcelona, España"}
-        ],
-    },
-    "mazo de prueba áçñ" : {
-        title : "mazo de prueba áçñ",
-        questions : [
-            {q: "Si, otro mazo", a: "oui, encore un autre"}
-        ]
-    }
-}
-
 /* From udacity spec
 {
   React: {
@@ -31,15 +15,6 @@ const initialState = {
       }
     ]
   },
-  JavaScript: {
-    title: 'JavaScript',
-    questions: [
-      {
-        question: 'What is a closure?',
-        answer: 'The combination of a function and the lexical environment within which that function was declared.'
-      }
-    ]
-  }
 }*/
 
 export default function (state={}, action) {

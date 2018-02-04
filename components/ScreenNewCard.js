@@ -57,8 +57,4 @@ class NewCard extends React.Component {
     }
 }
 
-const mapDispatchToProps = {
-    appAddCard
-}
-
-export default connect(null, mapDispatchToProps)(NewCard)
+export default connect(null, {appAddCard})(NewCard)
