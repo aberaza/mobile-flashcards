@@ -4,7 +4,7 @@ import {View, Text } from 'react-native'
 
 import Question from '../components/Question'
 import Answer from '../components/Answer'
-import Results from '../components/Results'
+
 import styles from '../utils/styles'
 
 import {clearLocalNotification, setLocalNotification} from '../utils/helpers'
@@ -25,50 +25,41 @@ class TestDeck extends React.Component {
         this.updateHeader(`0/${props.deck.questions.length}`)
     }
 
-    answerQuestion = (correct) => {
-        if(this.state.current +1 >= this.state.questions.length){
+    updateProgress = _ => {
+        if(this.state.current >= this.state.questions.length){
             clearLocalNotification().then(setLocalNotification)
-            const score = (this.state.correct + (correct? 1 : 0))*100/this.state.questions.length
-            this.updateHeader(`${Math.floor(score)}%`)
-        }else{
-            this.updateHeader(`${this.state.current + 1}/${this.state.questions.length}`)
+            this.props.navigation.navigate('QuizResults', {title: this.state.name, correct: this.state.correct})
         }
+        this.updateHeader(`${this.state.current}/${this.state.questions.length}`)
+    }
 
+    answerQuestion = (correct) => {
         this.setState((state) => {
             return {
                 current : ++state.current,
                 showAnswer: false,
                 correct: correct?++state.correct:state.correct,
             }
-        })
+        }, this.updateProgress)
     }
+
+    showResults = _ => this.props.navigation.navigate('QuizResults', )
 
     showAnswer = _ => this.setState({showAnswer:true})
 
     nextQuestion = _=> this.setState({current : this.state.current + 1, showAnswer:false})
 
-    goHome = _ => this.props.navigation.goBack()
-
-    restart = _ => this.props.navigation.goBack('DeckTest')
-
-    updateHeader = (value) => {
-        this.props.navigation.setParams({title: `${this.state.name} ${value}`})
-    }
+    updateHeader = (value) => this.props.navigation.setParams({title: `${this.state.name} ${value}`})
 
     render(){
-        const {questions, current } = this.state;
-        const finished = current >= questions.length
-        const showAnswer = !finished && this.state.showAnswer
-        const showQuestion = !finished && this.state.showQuestion
+        const {questions, current, showAnswer } = this.state
         
         return (
             <View style={styles.appContainer}>
-                {!finished && (this.state.showAnswer
+                {this.state.showAnswer
                     ? (<Answer answerQuestion={this.answerQuestion} {...questions[current]} />)
                     : (<Question showAnswer={this.showAnswer} {...questions[current]} />)
-                )}
-                {finished && (<Results goHome={this.goHome} restart={this.restart} {...this.state} />
-)}
+                }
             </View>
         )
     }

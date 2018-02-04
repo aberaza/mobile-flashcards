@@ -23,16 +23,12 @@ export function clearLocalNotification() {
 }
 
 export function setLocalNotification() {
-    console.log("setLocalNotification")
     AsyncStorage.getItem(REMINDER_NOTIFICATION_KEY)
         .then(JSON.parse)
         .then((data) => {
-            console.log("sln::data", data)
             if (data === null) {
-                console.log("sln::request permission")
                 Permissions.askAsync(Permissions.NOTIFICATIONS)
                     .then(({ status }) => {
-                        console.log("sln::permissionStatus::", status)
                         if (status === 'granted') {
                             Notifications.cancelAllScheduledNotificationsAsync()
 
@@ -65,6 +61,21 @@ function createNotification() {
             priority: 'high',
             sticky: false,
             vibrate: true,
+        }
+    }
+}
+
+export function getKeyForScreen(screen, routes){
+
+    for(let j=0; j < routes.length; j++){
+        let r = routes[j]
+        if(r.routeName === screen && r.key){
+            return r.key
+        }else if(r.routes){
+            let t = getKeyForScreen(screen, r.routes)
+            if(t){
+                return t;
+            }
         }
     }
 }

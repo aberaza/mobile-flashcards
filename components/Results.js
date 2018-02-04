@@ -9,7 +9,7 @@ export default (props) => (
     <Card>
         <CardTitle>Your Score!</CardTitle>
         <CardContent>
-            <Text style={styles.textStandard}>You scored {props.correct} out of {props.questions.length} ({Math.floor(props.correct*100/props.questions.length)}%)</Text>
+            <Text style={styles.textStandard}>You scored {props.correct} out of {props.total} ({Math.floor(props.correct*100/props.total)}%)</Text>
 
         </CardContent>
         <CardActions>

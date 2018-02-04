@@ -4,6 +4,7 @@ import DeckListNavigator from '../components/DecksListNavigator'
 import ScreenDeckInfo from '../components/ScreenDeckInfo'
 import ScreenNewCard from '../components/ScreenNewCard'
 import ScreenTestDeck from '../components/ScreenTestDeck'
+import ScreenQuizResults from '../components/ScreenQuizResults'
 import styles from '../utils/styles'
 import {DARK, YELLOW, RED_LIGHT } from '../utils/colors'
 
@@ -20,6 +21,10 @@ const routeConfig = {
     },
     DeckTest : {
       screen : ScreenTestDeck,
+      navigationOptions : ({navigation}) => ({title : `${navigation.state.params.title} ${navigation.state.params.value || ""}`})
+    },
+    QuizResults : {
+      screen : ScreenQuizResults,
       navigationOptions : ({navigation}) => ({title : `${navigation.state.params.title} ${navigation.state.params.value || ""}`})
     }
   }
