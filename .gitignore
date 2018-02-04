@@ -8,6 +8,7 @@ bin/
 
 # dependencies
 /node_modules
+yarn.lock
 
 #vscode
 /.vscode

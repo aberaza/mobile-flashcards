@@ -35,9 +35,9 @@ Install the Expo Client App from the Android Store (https://play.google.com/stor
 
     * To download the zip file, click [here](https://github.com/aberaza/mobile-flashcards/archive/master.zip). Then extract it's contents in a folder.
 
- 3. Install dependencies. On a terminal, cd to the folder with the project sources and run: `npm install`
+ 3. Install dependencies. On a terminal, cd to the folder with the project sources and run: `npm install`. Note that for some reason this program does not work with _yarn_.
 
- 4. Run the server: On the same terminal, run command `npm start` and follow instructions.
+ 4. Run the server: On the same terminal, run command `npm start` and follow instructions. Again, note that this program does not work with _yarn_.
 
 
 
