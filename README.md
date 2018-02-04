@@ -17,7 +17,7 @@ There are 3 ways to run this app on your device:
 
 ### Method 1: Install APK
 
-Download and install apk file from [here](https://exp-shell-app-assets.s3-us-west-1.amazonaws.com/android%2F%40aritz%2Fmobile-flashcards-2aed147e-0921-11e8-97eb-0a580a782815-signed.apk) on your Android device.
+Download and install apk file from [here](https://exp-shell-app-assets.s3-us-west-1.amazonaws.com/android%2F%40aritz%2Fmobile-flashcards-d8a79e96-09f9-11e8-a390-0a580a782517-signed.apk) on your Android device.
 
 ### Method 2: Run in expo from remote servers
 
