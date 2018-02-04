@@ -47,9 +47,9 @@ class TestDeck extends React.Component {
 
     nextQuestion = _=> this.setState({current : this.state.current + 1, showAnswer:false})
 
-    goHome = _ => this.props.navigation.navigate('Home', {})
+    goHome = _ => this.props.navigation.goBack()
 
-    restart = _ => this.setState({ current: 0, showAnswer: false, correct: 0 })
+    restart = _ => this.props.navigation.goBack('DeckTest')
 
     updateHeader = (value) => {
         this.props.navigation.setParams({title: `${this.state.name} ${value}`})

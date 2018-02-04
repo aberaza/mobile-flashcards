@@ -18,8 +18,8 @@ class NewDeck extends React.Component {
   addDeck = _ => {
     this.props.submitDeck(this.state.name)
       .then(_ => {
+        this.props.navigation.navigate('DeckHub', {title:this.state.name})
         this.setState({ name: "" })
-        this.props.navigation.goBack()
       })
   }
 

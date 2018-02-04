@@ -13,7 +13,7 @@ export default (props) => (
 
         </CardContent>
         <CardActions>
-            <MButton title="Change deck" onPress={props.goHome} />
+            <MButton title="Deck Info" onPress={props.goHome} />
             <MButton title="Start Over" onPress={props.restart} />
         </CardActions>
     </Card>
