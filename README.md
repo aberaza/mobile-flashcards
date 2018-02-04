@@ -21,9 +21,7 @@ Download and install apk file from [here](https://exp-shell-app-assets.s3-us-wes
 
 ### Method 2: Run in expo from remote servers
 
-Install the Expo Client App from the Android Store (https://play.google.com/store/apps/details?id=host.exp.exponent&referrer=www) and use it to scan this QRCode:
-
-![QRCode](./doc/runExpo.png)
+Install the Expo Client App from the Android Store (https://play.google.com/store/apps/details?id=host.exp.exponent&referrer=www) and use it to scan this QRCode you will find in this [web](https://expo.io/@aritz/mobile-flashcards)
 
 ### Method 3: Run in expo from local server
 

@@ -3,8 +3,8 @@
     "sdkVersion": "23.0.0",
     "slug": "mobile-flashcards",
     "name": "MobileFlashcards",
-    "description" : "Basic, really basic, flash-card application. Allows to keep a set of flash-cards grouped in decks and warns you when a dey passes without you testing at least one deck.",
-    "version" : "0.1.0",
+    "description" : "Basic, really basic, flash-card application. Allows to keep a set of flash-cards grouped in decks and warns you when a day passes without you testing at least one deck.",
+    "version" : "0.1.1",
     "platforms" : ["android"],
     "icon" : "./images/icon.png",
     "notification" : {
